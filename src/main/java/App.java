@@ -32,7 +32,7 @@ public class App {
         //get: show new post form
         get("/blogs/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "newpost-form.hbs");
+            return new ModelAndView(model, "post-form.hbs");
         }, new HandlebarsTemplateEngine());
 
         //get: show individual post
@@ -44,6 +44,13 @@ public class App {
             return new ModelAndView(model, "post-detail.hbs"); //individual post page.
         }, new HandlebarsTemplateEngine());
 
+        //get: show a form to update a post
+        get("/blogs/:id/update" , (request, response) -> {
+        Map<String, Object> model = new HashMap<>();
+        int idOfBlogToEdit = Integer.parseInt(request.params("id"));
+        Blog editBlog = Blog.findById(idOfBlogToEdit);
+        return new ModelAndView(model, "post-form.hbs");
+        },new HandlebarsTemplateEngine());
 
     }
 }

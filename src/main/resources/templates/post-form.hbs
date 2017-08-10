@@ -1,5 +1,13 @@
 {{#partial "content"}}
 
+ {{#if editBlog}}
+       <h1>Edit this Blog!</h1>
+       <form action="/blogs/{{editBlog.id}}/update" method="post">
+           <label for="inputFeelings">Edit this blog's's content</label>
+           <input id="inputFeelings" name="inputFeelings" type="text" value="{{editBlog.feelings}}">
+      </form>
+   {{else}}
+
    <h1>Add a new Blog!</h1>
 
    <form action="/blogs/new" method="post">
