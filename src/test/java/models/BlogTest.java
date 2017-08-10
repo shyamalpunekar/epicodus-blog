@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+
 import static org.junit.Assert.*;
 
 /**
@@ -36,6 +38,16 @@ public class BlogTest {
     public void sFalseAfterInstantiation_false() throws Exception {
         Blog blog = new Blog(" First Test");
         assertEquals(false, blog.getPublished());
+    }
+
+    @Test
+    public void getCreatedAt_instantiatesWithCurrentTime_today() throws Exception {
+        Blog myBlog = setupNewBlog();
+        assertEquals(LocalDateTime.now().getDayOfWeek(), myBlog.getCreatedAt().getDayOfWeek());
+    }
+
+    public Blog setupNewBlog(){
+        return new Blog("Testing setup");
     }
 
     @Before
