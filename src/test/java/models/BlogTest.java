@@ -51,9 +51,18 @@ public class BlogTest {
         Blog.clearAllBlogs();// Remember, the test will fail without this line!
         // We need to empty leftover Posts from previous tests!
         Blog myBlog = setupNewBlog();
-        assertEquals(1, myBlog.getGetId());
+        assertEquals(1, myBlog.getId());
+
+    }
 
 
+    //Finding Specific Objects
+
+
+    @Test
+    public void findReturnsCorrectBlog() throws Exception {
+        Blog blog = setupNewBlog();
+        assertEquals(1, Blog.findById(blog.getId()).getId());
     }
 
     public Blog setupNewBlog(){

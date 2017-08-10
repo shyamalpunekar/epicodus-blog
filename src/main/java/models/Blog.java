@@ -31,7 +31,7 @@ public class Blog {
         return feelings;
     }
 
-    public int getGetId() {
+    public int getId() {
         return getId;
     }
 
@@ -50,6 +50,10 @@ public class Blog {
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
+    }
+
+    public static Blog findById(int id) {
+        return instances.get(id -1);
     }
 }
 
