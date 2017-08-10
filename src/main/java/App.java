@@ -29,7 +29,20 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //get: show new post form
+        get("/blogs/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "newpost-form.hbs");
+        }, new HandlebarsTemplateEngine());
 
+        //get: show individual post
+        get("/blogs/:id", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfBlogToFind = Integer.parseInt(req.params("id")); //pull id - must match route segment
+            Blog foundPost = Blog.findById(idOfBlogToFind); //use it to find post
+            model.put("blog", foundPost); //add it to model for template to display
+            return new ModelAndView(model, "post-detail.hbs"); //individual post page.
+        }, new HandlebarsTemplateEngine());
 
 
     }

@@ -5,7 +5,7 @@
    {{#if blogs}}
        <p>Current blog:</p>
        {{#each blogs }} <!--loop-->
-        <p>{{ feelings }}</p> <!--show-->
+        <p>{{ feelings }}  <a href="/blogs/{{id}}">read more...</a> </p> <!--show-->
         <p>{{ createdAt }}</p> <!--show-->
        {{/each}}
    {{else}} <!--no blogs!-->
@@ -14,12 +14,6 @@
 
    <p>Add a new Blog:</p>
 
-   <form action="/blogs/new" method="POST">
-       <label for="inputFeelings">Blog Content</label>
-       <input id="inputFeelings" name="inputFeelings" type="text">
-
-       <button type="submit" class="btn btn-default">Add new blog blog</button>
-   </form>
 {{/partial}}
 
 {{> layout.hbs}}
