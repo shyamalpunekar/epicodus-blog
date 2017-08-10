@@ -20,6 +20,7 @@ public class Blog {
         return feelings;
     }
 
+    //Displaying Custom Objects
     public static ArrayList<Blog> getAll(){
         return instances;
     }

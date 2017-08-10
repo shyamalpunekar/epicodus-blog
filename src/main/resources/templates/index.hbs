@@ -1,15 +1,24 @@
 {{#partial "content"}}
 
-<h1>Post list!</h1>
+   <h1>Blog list!</h1>
 
-<p>Add a new Post:</p>
+   {{#if blogs}}
+       <p>Current blog:</p>
+       {{#each blogs }} <!--loop-->
+        <p>{{ feelings }}</p> <!--show-->
+       {{/each}}
+   {{else}} <!--no blogs!-->
+    <p>No blogs!</p>
+   {{/if}}
 
-<form action="/blogs/new" method="POST">
-  <label for="inputFeelings">Post Description</label>
-  <input id="inputFeelings" name="inputFeelings" type="text">
+   <p>Add a new Blog:</p>
 
-  <button type="submit" class="btn btn-default">Add post</button>
-</form>
+   <form action="/blogs/new" method="POST">
+       <label for="inputFeelings">Blog Content</label>
+       <input id="inputFeelings" name="inputFeelings" type="text">
+
+       <button type="submit" class="btn btn-default">Add new blog blog</button>
+   </form>
 {{/partial}}
 
-{{>layout.hbs}}
+{{> layout.hbs}}
