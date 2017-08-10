@@ -30,8 +30,12 @@ public class BlogTest {
         Blog secondBlog = new Blog("second test");
 
         assertEquals(2, Blog.getAll().size());
+    }
 
-
+    @Test
+    public void sFalseAfterInstantiation_false() throws Exception {
+        Blog blog = new Blog(" First Test");
+        assertEquals(false, blog.getPublished());
     }
 
     @Before

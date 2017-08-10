@@ -9,11 +9,14 @@ public class Blog {
 
     private String feelings;
 
+    private boolean published;
+
     private static ArrayList<Blog> instances = new ArrayList<>();
 
     public Blog(String feelings) {
         this.feelings = feelings;
         instances.add(this);
+        this.published = false;
     }
 
     public String getFeelings() {
@@ -30,5 +33,8 @@ public class Blog {
     }
 
 
+    public boolean getPublished() {
+        return published;
+    }
 }
 
