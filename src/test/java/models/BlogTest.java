@@ -23,12 +23,24 @@ public class BlogTest {
         assertEquals("Day 1: Intro", blog.getFeelings());
     }
 
+
+    @Test
+    public void AllBlogssAreCorrectlyReturned_true() throws Exception {
+        Blog firstBlog = new Blog("First test");
+        Blog secondBlog = new Blog("second test");
+
+        assertEquals(2, Blog.getAll().size());
+
+
+    }
+
     @Before
     public void setUp() throws Exception {
     }
 
     @After
     public void tearDown() throws Exception {
+        Blog.clearAllBlogs();
     }
 
 }
