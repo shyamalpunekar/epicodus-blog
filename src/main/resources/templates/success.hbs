@@ -3,7 +3,15 @@
 <h1>Success!</h1>
 
 Your blog post has been saved.
+{{#if blogs}}
+    {{#each blogs }} <!--loop-->
+        <p>{{ feelings }}  <a href="/blogs/{{id}}">read more...</a> </p> <!--show-->
+        <p>{{ createdAt }}</p> <!--show-->
+       {{/each}}
+       {{else}}
 
+            <p>No blogs!</p>
+{{/if}}
 <a href="/">Go Back</a>
 {{/partial}}
 

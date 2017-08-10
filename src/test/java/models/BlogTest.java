@@ -49,16 +49,16 @@ public class BlogTest {
     @Test
     public void getId_blogsInstantiateWithAnID_1() throws Exception {
         Blog.clearAllBlogs();// Remember, the test will fail without this line!
-        // We need to empty leftover Posts from previous tests!
+        // We need to empty leftover Blogs from previous tests!
         Blog myBlog = setupNewBlog();
         assertEquals(1, myBlog.getId());
     }
 
     @Test
-    public void findReturnsCorrectPostWhenMoreThanOnePostExists() throws Exception {
-        Blog post = setupNewBlog();
-        Blog otherPost = new Blog("How to pair successfully");
-        assertEquals(2, Blog.findById(otherPost.getId()).getId());
+    public void findReturnsCorrectBlogWhenMoreThanOneBlogExists() throws Exception {
+        Blog Blog = setupNewBlog();
+        Blog otherBlog = new Blog("How to pair successfully");
+        assertEquals(2, Blog.findById(otherBlog.getId()).getId());
     }
 
     //Finding Specific Objects
@@ -87,6 +87,24 @@ public class BlogTest {
 
     }
 
+    @Test
+    public void deleteDeletesASpecificBlog() throws Exception {
+        Blog Blog = setupNewBlog();
+        Blog otherBlog = new Blog("How to pair successfully");
+        Blog.deleteBlog();
+        assertEquals(1, Blog.getAll().size()); //one is left
+        assertEquals(Blog.getAll().get(0).getId(), 2); //the one that was deleted has the id of 2. Why do we care?
+    }
+
+
+    @Test
+    public void deleteAllBlogsDeletesAllBlogs() throws Exception {
+        Blog Blog = setupNewBlog();
+        Blog otherBlog = setupNewBlog();
+
+        Blog.clearAllBlogs();
+        assertEquals(0, Blog.getAll().size());
+    }
     @Before
     public void setUp() throws Exception {
     }

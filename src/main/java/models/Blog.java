@@ -59,5 +59,9 @@ public class Blog {
     public void update(String newValue) {
         this.feelings = newValue;
     }
+
+    public void deleteBlog(){
+        instances.remove(getId-1); //same reason
+    }
 }
 
