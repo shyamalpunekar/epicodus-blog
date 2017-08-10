@@ -25,6 +25,7 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             String bananas = request.queryParams("inputFeelings");
             Blog newBlog = new Blog(bananas);
+            model.put("blogs", bananas);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 

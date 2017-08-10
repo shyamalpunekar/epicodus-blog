@@ -52,7 +52,13 @@ public class BlogTest {
         // We need to empty leftover Posts from previous tests!
         Blog myBlog = setupNewBlog();
         assertEquals(1, myBlog.getId());
+    }
 
+    @Test
+    public void findReturnsCorrectPostWhenMoreThanOnePostExists() throws Exception {
+        Blog post = setupNewBlog();
+        Blog otherPost = new Blog("How to pair successfully");
+        assertEquals(2, Blog.findById(otherPost.getId()).getId());
     }
 
 
