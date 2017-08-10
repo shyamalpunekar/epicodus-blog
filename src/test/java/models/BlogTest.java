@@ -61,10 +61,7 @@ public class BlogTest {
         assertEquals(2, Blog.findById(otherPost.getId()).getId());
     }
 
-
     //Finding Specific Objects
-
-
     @Test
     public void findReturnsCorrectBlog() throws Exception {
         Blog blog = setupNewBlog();
@@ -73,6 +70,21 @@ public class BlogTest {
 
     public Blog setupNewBlog(){
         return new Blog("Testing setup");
+    }
+
+    @Test
+    public void updateChangesBlogContent() throws Exception {
+        Blog blog = setupNewBlog();
+        String firstInput = blog.getFeelings();
+        LocalDateTime retrieveDateInfo = blog.getCreatedAt();
+        int retrieveId = blog.getId();
+
+        blog.update("Testing setup");
+
+        assertEquals(firstInput, blog.getFeelings());
+        assertEquals(retrieveDateInfo, blog.getCreatedAt());
+        assertEquals(retrieveId , blog.getId());
+
     }
 
     @Before
