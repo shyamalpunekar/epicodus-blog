@@ -13,6 +13,10 @@ public class Blog {
     private boolean published;
 
     private LocalDateTime createdAt;
+
+
+    private int getId;
+
     private static ArrayList<Blog> instances = new ArrayList<>();
 
     public Blog(String feelings) {
@@ -20,10 +24,15 @@ public class Blog {
         instances.add(this);
         this.published = false;
         this.createdAt = LocalDateTime.now();
+        this.getId = instances.size();
     }
 
     public String getFeelings() {
         return feelings;
+    }
+
+    public int getGetId() {
+        return getId;
     }
 
     //Displaying Custom Objects
